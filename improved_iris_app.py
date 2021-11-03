@@ -99,6 +99,10 @@ if st.sidebar.button("Predict"):
 #img = load_image('iris-setosa.jpeg')
 #st.image(img)
 
+import base64
+
+@st.cache(allow_output_mutation=True)
+
 def get_base64(bin_file):
     with open(bin_file, 'rb') as f:
         data = f.read()
