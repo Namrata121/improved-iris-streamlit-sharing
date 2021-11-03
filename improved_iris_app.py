@@ -116,5 +116,5 @@ def set_background(png_file):
     ''' % bin_str
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-set_background('https://images.app.goo.gl/GaDit4MBq1nPqzL89')
+set_background('test.png')
 
