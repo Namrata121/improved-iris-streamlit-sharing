@@ -9,12 +9,7 @@ from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression  
 from sklearn.ensemble import RandomForestClassifier
 
-from PIL import Image
-img = Image.open("iris-setosa.jpg")
- 
-# display image using streamlit
-# width is used to set the width of an image
-st.image(img, width=200)
+
 
 # Loading the dataset.
 iris_df = pd.read_csv("iris-species.csv")
