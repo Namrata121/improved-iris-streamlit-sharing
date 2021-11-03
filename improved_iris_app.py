@@ -50,14 +50,17 @@ def prediction(model, sepal_length, sepal_width, petal_length, petal_width):
   	species = model.predict([[sepal_length, sepal_width, petal_length, petal_width]])
   	species = species[0]
   	if species == 0:
+		st.image(img, width=200)
   		return "Iris-setosa"
-	        st.image(img, width=200)
+	        
   	elif species == 1:
+		st.image(img, width=200)
   		return "Iris-virginica"
-	        st.image(img, width=200)
+	        
   	else:
+		st.image(img, width=200)
   		return "Iris-versicolor"
-	        st.image(img, width=200)
+	        
 
 # Add title widget
 st.sidebar.title("Iris Flower Species Prediction App")      
