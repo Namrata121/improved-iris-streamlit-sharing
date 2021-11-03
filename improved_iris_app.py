@@ -90,11 +90,31 @@ if st.sidebar.button("Predict"):
 	st.write("Accuracy score of this model is:", score)
 	
 	
-from PIL import Image
+#from PIL import Image
 
-def load_image(img):
-    im = Image.open(img)
-    image = np.array(im)
-    return image
-img = load_image('iris-setosa.jpeg')
-st.image(img)
+#def load_image(img):
+#    im = Image.open(img)
+#    image = np.array(im)
+#    return image
+#img = load_image('iris-setosa.jpeg')
+#st.image(img)
+
+
+def get_base64(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+def set_background(png_file):
+    bin_str = get_base64(png_file)
+    page_bg_img = '''
+    <style>
+    body {
+    background-image: url("data:image/png;base64,%s");
+    background-size: cover;
+    }
+    </style>
+    ''' % bin_str
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+
+set_background('iris-setosa.jpeg')
