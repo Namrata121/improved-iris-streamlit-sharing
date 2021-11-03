@@ -9,6 +9,11 @@ from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression  
 from sklearn.ensemble import RandomForestClassifier
 
+from PIL import Image
+img = Image.open("iris-setosa.jpeg")
+ 
+# display image using streamlit
+# width is used to set the width of an image
 
 
 # Loading the dataset.
@@ -46,10 +51,13 @@ def prediction(model, sepal_length, sepal_width, petal_length, petal_width):
   	species = species[0]
   	if species == 0:
   		return "Iris-setosa"
+	        st.image(img, width=200)
   	elif species == 1:
   		return "Iris-virginica"
+	        st.image(img, width=200)
   	else:
   		return "Iris-versicolor"
+	        st.image(img, width=200)
 
 # Add title widget
 st.sidebar.title("Iris Flower Species Prediction App")      
