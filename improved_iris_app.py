@@ -99,22 +99,17 @@ if st.sidebar.button("Predict"):
 #img = load_image('iris-setosa.jpeg')
 #st.image(img)
 
-
-def get_base64(bin_file):
-    with open(bin_file, 'rb') as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
-
-def set_background(png_file):
-    bin_str = get_base64(png_file)
-    page_bg_img = '''
+st.markdown(
+    """
     <style>
-    body {
-    background-image: url("data:image/png;base64,%s");
-    background-size: cover;
+    .reportview-container {
+        background: url("https://images.app.goo.gl/LFCobouKtT7oZ7Qv7")
+    }
+   .sidebar .sidebar-content {
+        background: url("https://images.app.goo.gl/LFCobouKtT7oZ7Qv7")
     }
     </style>
-    ''' % bin_str
-    st.markdown(page_bg_img, unsafe_allow_html=True)
+    """,
+    unsafe_allow_html=True
+)
 
-set_background('iris-setosa.jpeg')
