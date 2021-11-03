@@ -96,5 +96,5 @@ def load_image(img):
     im = Image.open(img)
     image = np.array(im)
     return image
-img = load_image('https://github.com/Namrata121/improved-iris-streamlit-sharing/blob/main/iris-setosa.jpeg')
+img = load_image('iris-setosa.jpeg')
 st.image(img)
