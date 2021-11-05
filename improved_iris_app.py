@@ -64,7 +64,7 @@ def prediction(model, sepal_length, sepal_width, petal_length, petal_width):
       return "Iris-versicolor"
 
 # Add title widget
-st.markdown("<p style='color:golden;font-family:cursive;font-size:35px'>Iris Flower Species Prediction App",unsafe_allow_html = True)
+st.markdown("<p style='color:brown;font-family:cursive;font-size:35px'>Iris Flower Species Prediction App",unsafe_allow_html = True)
 #st.title("Iris Flower Species Prediction App")
 st.sidebar.title("Iris Flower Features")       
 
