@@ -10,15 +10,6 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from PIL import Image
 
-
-def load_image(img):
-    im = Image.open(img)
-    image = np.array(im)
-    return image
-img1 = load_image('iris-setosa.jpeg')
-img2 = load_image('Iris_virginica.jpg')
-img3 = load_image('iris-versicolor.jpg')
-
 # Loading the dataset.
 iris_df = pd.read_csv("iris-species.csv")
 
@@ -47,26 +38,35 @@ rf_clf.fit(X_train, y_train)
 log_reg = LogisticRegression(n_jobs = -1)
 log_reg.fit(X_train, y_train)
 
+
+def load_image(img):
+    im = Image.open(img)
+    image = np.array(im)
+    return image
+img1 = load_image('C:/Users/Python_scripts/iris-setosa.jpeg')
+img2 = load_image('C:/Users/Python_scripts/Iris_virginica.jpg')
+img3 = load_image('C:/Users/Python_scripts/iris-versicolor.jpg')
+
+
 # Create a function 'prediction()' which accepts model, SepalLength, SepalWidth, PetalLength, PetalWidth as input and returns species name.
-@st.cache()
+@st.cache(suppress_st_warning=True)
 def prediction(model, sepal_length, sepal_width, petal_length, petal_width):
-  	species = model.predict([[sepal_length, sepal_width, petal_length, petal_width]])
-  	species = species[0]
-  	if species == 0:
-		
-  		return "Iris-setosa"
-	        
-  	elif species == 1:
-		
-  		return "Iris-virginica"
-	        
-  	else:
-		
-  		return "Iris-versicolor"
-	        
+    species = model.predict([[sepal_length, sepal_width, petal_length, petal_width]])
+    species = species[0]
+    if species == 0:
+      
+      return "Iris-setosa"
+    elif species == 1:
+      
+      return "Iris-virginica"
+    else:
+      
+      return "Iris-versicolor"
 
 # Add title widget
-st.sidebar.title("Iris Flower Species Prediction App")      
+st.markdown("<p style='color:turquoise;font-size:30px'>Iris Flower Species Prediction App",unsafe_allow_html = True)
+#st.title("Iris Flower Species Prediction App")
+st.sidebar.title("Iris Flower Features")       
 
 # Add 4 sliders and store the value returned by them in 4 separate variables. 
 s_len = st.sidebar.slider("Sepal Length", float(iris_df["SepalLengthCm"].min()), float(iris_df["SepalLengthCm"].max()))
@@ -83,31 +83,29 @@ classifier = st.sidebar.selectbox("Classifier", ('Support Vector Machine', 'Logi
 # Store the predicted in a variable 'species_type' accuracy score of model in 'score' variable. 
 # Print the value of 'species_type' and 'score' variable using 'st.text()' function.
 if st.sidebar.button("Predict"):
-	if classifier =='Support Vector Machine':
-		species_type = prediction(svc_model, s_len, s_wid, p_len, p_wid)
-		score = svc_model.score(X_train, y_train)
-	
-	elif classifier =='Logistic Regression':
-		species_type = prediction(log_reg, s_len, s_wid, p_len, p_wid)
-		score = log_reg.score(X_train, y_train)
-	
-	else:
-		species_type = prediction(rf_clf, s_len, s_wid, p_len, p_wid)
-		score = rf_clf.score(X_train, y_train)
-	
-        if species_type == "Iris-setosa":
-                st.image(img1)
-                st.write("Species predicted:", species_type)
-		
-        elif species_type == "Iris-virginica":
-                st.image(img2)
-                st.write("Species predicted:", species_type)
-		
-        elif species_type == "Iris-versicolor":
-                st.image(img3)
-                st.write("Species predicted:", species_type)
-		
-	st.write("Accuracy score of this model is:", score)
+  if classifier =='Support Vector Machine':
+    species_type = prediction(svc_model, s_len, s_wid, p_len, p_wid)
+    score = svc_model.score(X_train, y_train)
+  
+  elif classifier =='Logistic Regression':
+    species_type = prediction(log_reg, s_len, s_wid, p_len, p_wid)
+    score = log_reg.score(X_train, y_train)
+  
+  else:
+    species_type = prediction(rf_clf, s_len, s_wid, p_len, p_wid)
+    score = rf_clf.score(X_train, y_train)
+
+  if species_type == "Iris-setosa":
+    st.image(img1)
+    st.write("Species predicted:", species_type)
+  elif species_type == "Iris-virginica":
+    st.image(img2)
+    st.write("Species predicted:", species_type)
+  elif species_type == "Iris-versicolor":
+    st.image(img3)
+    st.write("Species predicted:", species_type)
+
+  st.write("Accuracy score of this model is:", score)
 	
 	
 #from PIL import Image
