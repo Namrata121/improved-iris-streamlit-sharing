@@ -43,9 +43,9 @@ def load_image(img):
     im = Image.open(img)
     image = np.array(im)
     return image
-img1 = load_image('C:/Users/Python_scripts/iris-setosa.jpeg')
-img2 = load_image('C:/Users/Python_scripts/Iris_virginica.jpg')
-img3 = load_image('C:/Users/Python_scripts/iris-versicolor.jpg')
+img1 = load_image('iris-setosa.jpeg')
+img2 = load_image('Iris_virginica.jpg')
+img3 = load_image('iris-versicolor.jpg')
 
 
 # Create a function 'prediction()' which accepts model, SepalLength, SepalWidth, PetalLength, PetalWidth as input and returns species name.
