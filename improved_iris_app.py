@@ -16,7 +16,7 @@ def load_image(img):
     image = np.array(im)
     return image
 img1 = load_image('iris-setosa.jpeg')
-img2 = load_image('iris_virginica.jpg')
+img2 = load_image('Iris_virginica.jpg')
 img3 = load_image('iris-versicolor.jpg')
 
 # Loading the dataset.
