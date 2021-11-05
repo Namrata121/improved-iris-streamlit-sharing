@@ -8,7 +8,16 @@ from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression  
 from sklearn.ensemble import RandomForestClassifier
+from PIL import Image
 
+
+def load_image(img):
+    im = Image.open(img)
+    image = np.array(im)
+    return image
+img1 = load_image('iris-setosa.jpeg')
+img2 = load_image('iris_virginica.jpg')
+img3 = load_image('iris-versicolor.jpg')
 
 # Loading the dataset.
 iris_df = pd.read_csv("iris-species.csv")
@@ -86,7 +95,18 @@ if st.sidebar.button("Predict"):
 		species_type = prediction(rf_clf, s_len, s_wid, p_len, p_wid)
 		score = rf_clf.score(X_train, y_train)
 	
-	st.write("Species predicted:", species_type)
+	if species_type == "Iris-setosa":
+          st.image(img1)
+          st.write("Species predicted:", species_type)
+		
+        elif species_type == "Iris-virginica":
+          st.image(img2)
+          st.write("Species predicted:", species_type)
+		
+        elif species_type == "Iris-versicolor":
+          st.image(img3)
+          st.write("Species predicted:", species_type)
+		
 	st.write("Accuracy score of this model is:", score)
 	
 	
