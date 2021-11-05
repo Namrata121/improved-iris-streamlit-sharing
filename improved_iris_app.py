@@ -96,16 +96,16 @@ if st.sidebar.button("Predict"):
 		score = rf_clf.score(X_train, y_train)
 	
         if species_type == "Iris-setosa":
-               st.image(img1)
-               st.write("Species predicted:", species_type)
+                st.image(img1)
+                st.write("Species predicted:", species_type)
 		
         elif species_type == "Iris-virginica":
-               st.image(img2)
-               st.write("Species predicted:", species_type)
+                st.image(img2)
+                st.write("Species predicted:", species_type)
 		
         elif species_type == "Iris-versicolor":
-               st.image(img3)
-               st.write("Species predicted:", species_type)
+                st.image(img3)
+                st.write("Species predicted:", species_type)
 		
 	st.write("Accuracy score of this model is:", score)
 	
