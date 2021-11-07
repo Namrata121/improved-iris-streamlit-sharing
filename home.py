@@ -10,9 +10,8 @@ def app(df):
   )
 
   st.header("View Data") 
-  data = st.selectbox("View Raw Dataset","IrisDataset")
-  if data == "IrisDataset":
-    st.table(df)
+  if st.checkbox("View Raw Dataset"):
+    st.dataframe(df)
 
   if st.checkbox("Show summary"):
     st.table(df.describe())
