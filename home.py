@@ -10,7 +10,8 @@ def app(df):
   )
 
   st.header("View Data") 
-  with st.beta_expander("View Raw Dataset"):
+  data = st.selectbox("View Raw Dataset",("IrisDataset"))
+  if data == "IrisDataset":
     st.table(df)
 
   if st.checkbox("Show summary"):
