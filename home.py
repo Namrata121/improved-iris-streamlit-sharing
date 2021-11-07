@@ -10,7 +10,7 @@ def app(df):
   )
 
   st.header("View Data") 
-  data = st.selectbox("View Raw Dataset",("IrisDataset"))
+  data = st.selectbox("View Raw Dataset","IrisDataset")
   if data == "IrisDataset":
     st.table(df)
 
