@@ -6,11 +6,11 @@ import plots
 import predict
 
 
-st.set_page_config(page_title = 'Flower Prediction',
-                    page_icon = ':flower:',
-                    layout = 'centered',
-                    initial_sidebar_state = 'auto'
-                    )
+# st.set_page_config(page_title = 'Flower Prediction',
+#                     page_icon = ':flower:',
+#                     layout = 'centered',
+#                     initial_sidebar_state = 'auto'
+#                     )
 
 iris_df = pd.read_csv("iris-species.csv")
 iris_df['Label'] = iris_df['Species'].map({'Iris-setosa': 0, 'Iris-virginica': 1, 'Iris-versicolor':2})
