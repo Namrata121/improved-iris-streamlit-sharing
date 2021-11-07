@@ -10,7 +10,7 @@ def app(df):
   )
 
   st.header("View Data") 
-  with st.expander("View Raw Dataset"):
+  with st.beta_expander("View Raw Dataset"):
     st.table(df)
 
   if st.checkbox("Show summary"):
