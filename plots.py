@@ -8,7 +8,7 @@ import streamlit as st
 def app(df):
 	  
   st.header('Visualise data')
-  st.set_option('deprecation.showPyplotGlobalUse', False)
+  #st.set_option('deprecation.showPyplotGlobalUse', False)
   feature1 = st.selectbox("Select the x-axis values:",('SepalLengthCm','SepalWidthCm'))
   feature2 = st.selectbox("Select the y-axis values:",('PetalLengthCm','PetalWidthCm')) 
 
