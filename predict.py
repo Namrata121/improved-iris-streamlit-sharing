@@ -101,7 +101,7 @@ def app(df):
       cm = (confusion_matrix(y_train,pred))
       cr = classification_report(y_train,pred)
 
-      st.title("Evaluation of {classifier}")
+      st.title(f"Evaluation of ",classifier)
       st.subheader("Confusion Matrix")
       plt.figure(figsize = (8, 5))
       ax = sns.heatmap(cm, annot = True,cmap="YlGnBu" , xticklabels = label , yticklabels = label )  
